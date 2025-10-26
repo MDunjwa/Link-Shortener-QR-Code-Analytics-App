@@ -1,0 +1,3 @@
+"""
+Firebase and other configuration 
+"""
