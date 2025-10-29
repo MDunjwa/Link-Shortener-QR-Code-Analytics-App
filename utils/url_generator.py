@@ -6,7 +6,10 @@ Arguments: decimal (int) the autoincrement ID value of the URL being encoded
 Returns: hash_string (string) the short URL
 """
 def to_base_62(decimal):
-    characters = '012345689abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    if decimal==0:
+        return 0
+
+    characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
     hash_string = ''
     while decimal > 0:
         hash_string = characters[decimal % 62] + hash_string
