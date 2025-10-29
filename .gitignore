@@ -1,1 +1,31 @@
 # To prevent the pushing of unnecesarry things like venv, or private info like Firebase credentials
+# Python cache and compiled files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+build/
+dist/
+
+# Virtual environments
+venv/
+myenv/
+.venv/
+.env
+
+# IDE / editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Secrets / environment variables
+.env

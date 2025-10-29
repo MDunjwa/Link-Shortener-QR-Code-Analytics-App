@@ -1,1 +1,3 @@
-# For future python packages I'll want other developers to install to use my project
+colorama==0.4.6
+pillow==12.0.0
+qrcode==8.2
