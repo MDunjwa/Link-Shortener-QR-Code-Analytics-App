@@ -32,3 +32,6 @@ Thumbs.db
 
 # Generated QR code images
 static/qrcodes/
+
+# Firebase credentials
+firebase-credentials.json
