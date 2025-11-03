@@ -5,7 +5,7 @@ Arguments: decimal (int) the autoincrement ID value of the URL being encoded
 
 Returns: hash_string (string) the short URL
 """
-def to_base_62(decimal):
+def to_base_62(decimal: int):
     if decimal==0:
         return 0
 

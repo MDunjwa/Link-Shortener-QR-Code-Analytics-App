@@ -29,3 +29,6 @@ Thumbs.db
 
 # Secrets / environment variables
 .env
+
+# Generated QR code images
+static/qrcodes/
