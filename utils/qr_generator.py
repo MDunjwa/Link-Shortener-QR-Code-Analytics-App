@@ -23,3 +23,4 @@ def generate_qr_code(url: str, filename: str = None):
     img.save(path)
 
     return path
+#testing github contributions
