@@ -38,10 +38,14 @@ def shorten_url():
     if not original_url or not validators.url(original_url): # If my URL is null or not valid return a bad request response
         return jsonify({'error': 'Invalid URL'}), 400
 
-    random_number = random.getrandbits(32)  # Generate a random number from 4 billion possibilities
-    short_id = to_base_62(random_number) # Shorten that number
+    while True: # Keep trying to generate a unique ID 
+        random_number = random.getrandbits(32)  # Generate a random number from 4 billion possibilities
+        short_id = to_base_62(random_number) # Shorten that number
     
-    doc_ref = db.collection('urls').document(short_id) # I'm creating a document reference in the URLs collection in Firebase
+        doc_ref = db.collection('urls').document(short_id) # I'm creating a document reference in the URLs collection in Firebase
+
+        if not doc_ref.get().exists: # If there isn't a duplicate ID
+            break
 
     # Saving it in Firestore
     doc_ref.set({
@@ -64,12 +68,12 @@ def shorten_url():
 # Redirect route
 @app.route('/<short_id>')
 def redirect_url(short_id):
-    result = db.collection('urls').where('short_id', '==', short_id).get() 
+    doc_reference = db.collection('urls').document(short_id)
+    doc = doc_reference.get()
 
-    if not result: 
+    if not doc.exists: 
         return jsonify({"error": "Short URL not found"}), 404
     
-    doc = result[0]
     data = doc.to_dict()
     original_url = data.get("original_url")
 
@@ -84,12 +88,12 @@ def redirect_url(short_id):
 # Stats route
 @app.route('/stats/<short_id>', methods=['GET'])
 def stats(short_id):
-    result = db.collection('urls').where('short_id', '==', short_id).get()
+    doc_reference = db.collection('urls').document(short_id)
+    doc = doc_reference.get()
 
-    if not result:
+    if not doc.exists:
         return jsonify({"error": "Short URL not found"}), 404
 
-    doc = result[0]
     data = doc.to_dict()
 
     return jsonify({
