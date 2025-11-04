@@ -8,7 +8,7 @@ import validators # Helps me check if URLs are valid
 from utils.qr_generator import generate_qr_code
 from utils.url_generator import to_base_62
 
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, redirect
 import random
 
 # Creating an instance of my web app
@@ -61,5 +61,35 @@ def shorten_url():
         "qr_code": qr_code
     }), 201
 
+# Redirect route
+@app.route('/<short_id>')
+def redirect_url(short_id):
+    result = db.collection('urls').where('short_id', '==', short_id).get() 
+
+    if not result: 
+        return jsonify({"error": "Short URL not found"}), 404
+    
+    doc = result[0]
+    data = doc.to_dict()
+    original_url = data.get("original_url")
+
+    # Incrementing click counter when I find a matching url
+    db.collection('urls').document(doc.id).update({
+        "clicks": firestore.Increment(1)
+    })
+
+    return redirect(original_url)
+
+
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
+
+"""
+What db.collection looks like Collection: urls
+Document ID: AbC123xyZ
+Fields:
+    original_url: "https://google.com"
+    short_id: "g1Aa"
+    clicks: 2
+    created_at: <timestamp>
+"""
