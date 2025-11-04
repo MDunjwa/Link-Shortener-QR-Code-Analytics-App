@@ -7,7 +7,7 @@ Returns: hash_string (string) the short URL
 """
 def to_base_62(decimal: int):
     if decimal==0:
-        return 0
+        return '0'
 
     characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
     hash_string = ''
