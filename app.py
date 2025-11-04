@@ -75,10 +75,30 @@ def redirect_url(short_id):
 
     # Incrementing click counter when I find a matching url
     db.collection('urls').document(doc.id).update({
-        "clicks": firestore.Increment(1)
+        "clicks": firestore.Increment(1),
+        "last_accessed": firestore.SERVER_TIMESTAMP
     })
 
     return redirect(original_url)
+
+# Stats route
+@app.route('/stats/<short_id>', methods=['GET'])
+def stats(short_id):
+    result = db.collection('urls').where('short_id', '==', short_id).get()
+
+    if not result:
+        return jsonify({"error": "Short URL not found"}), 404
+
+    doc = result[0]
+    data = doc.to_dict()
+
+    return jsonify({
+        "original_url": data.get("original_url"),
+        "short_id": data.get("short_id"),
+        "clicks": data.get("clicks"),
+        "created_at": data.get("created_at"),
+        "last_accessed": data.get("last_accessed")
+    }), 200
 
 
 if __name__ == '__main__':
