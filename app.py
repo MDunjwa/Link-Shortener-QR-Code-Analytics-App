@@ -8,7 +8,7 @@ import validators # Helps me check if URLs are valid
 from utils.qr_generator import generate_qr_code
 from utils.url_generator import to_base_62
 
-from flask import Flask, request, jsonify, redirect
+from flask import Flask, request, jsonify, redirect, render_template
 import random
 
 # Creating an instance of my web app
@@ -27,7 +27,7 @@ except Exception as e:
 # Test route for the home page
 @app.route('/')
 def index():
-    return "Hello! Flask is running."
+    return render_template('index.html')
 
 # Shorten route
 @app.route('/shorten', methods=['POST'])
