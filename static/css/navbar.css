@@ -1,0 +1,70 @@
+/* This is where my styling for the nav bar will reside */
+
+nav {
+    position: fixed; 
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%); 
+    width: 90%;
+    max-width: 1200px;
+    
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    padding: 18px 40px;
+    
+    background: #4CAF50;
+    border-radius: 50px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    
+    z-index: 1000;
+}
+
+/* Logo */
+.logo {
+    font-size: 26px;
+    font-weight: 600;
+    color: white;
+    letter-spacing: -0.5px;
+}
+
+/* Nav bar container */
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 45px;
+    align-items: center;
+}
+
+.nav-links li a {
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 400;
+    transition: all 0.2s ease;
+    opacity: 0.9;
+}
+
+.nav-links li a:hover {
+    opacity: 1;
+}
+
+/* Responsive code for mobile */
+@media (max-width: 768px) {
+    nav {
+        width: 95%;
+        padding: 15px 25px;
+    }
+    
+    .nav-links {
+        gap: 25px;
+    }
+    
+    .nav-links li a {
+        font-size: 14px;
+    }
+    
+    .logo {
+        font-size: 22px;
+    }
+}
