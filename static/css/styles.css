@@ -1,0 +1,226 @@
+/* Hero Section Layout */
+.hero-section {
+    padding-top: 150px; /* Space below the fixed navbar */
+    padding-bottom: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align content to the top */
+    min-height: 85vh;
+}
+
+.hero-section .container {
+    display: flex;
+    max-width: 1100px;
+    width: 90%;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+}
+
+/* Left Side: Content (Input/Output) */
+.hero-content {
+    flex: 2; /* Takes up more space */
+    padding: 60px 50px;
+}
+
+.hero-content h1 {
+    font-size: 38px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.hero-content p {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+/* Input Form */
+.shorten-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 40px;
+}
+
+.shorten-form input[type="url"] {
+    flex-grow: 1;
+    padding: 18px 20px;
+    border: 2px solid #ddd;
+    border-radius: 12px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+.shorten-form input[type="url"]:focus {
+    outline: none;
+    border-color: #4CAF50;
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
+}
+
+.shorten-form button[type="submit"] {
+    padding: 18px 30px;
+    background-color: #4CAF50; /* Green accent color */
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.shorten-form button[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+/* Output Section */
+.output-section {
+    opacity: 0; /* Use JS to fade this in */
+    transition: opacity 0.5s ease;
+}
+
+.output-section.show {
+    opacity: 1;
+}
+
+.output-section h2 {
+    font-size: 22px;
+    color: #4CAF50;
+    margin-bottom: 20px;
+}
+
+.output-group {
+    display: flex;
+    margin-bottom: 15px;
+    background: #f0f0f0;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.output-group input {
+    flex-grow: 1;
+    padding: 15px 20px;
+    border: none;
+    background: transparent;
+    font-size: 16px;
+    color: #333;
+    cursor: default;
+}
+
+.copy-button {
+    padding: 15px 25px;
+    background-color: #ccc;
+    color: #333;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s;
+}
+
+.copy-button:hover {
+    background-color: #bbb;
+}
+
+/* View Analytics Button */
+.view-analytics-button {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: transparent;
+    border: 2px solid #4CAF50;
+    color: #4CAF50;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    margin-top: 10px;
+    transition: all 0.2s;
+}
+
+.view-analytics-button i {
+    margin-right: 8px;
+}
+
+.view-analytics-button:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+
+/* Right Side: QR Code */
+.qr-code-section {
+    flex: 1; /* Takes up less space */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #e8f5e9; /* Light green background for contrast */
+    padding: 50px 30px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.qr-code-placeholder {
+    width: 200px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.qr-code-placeholder .placeholder-text {
+    font-size: 14px;
+    color: #999;
+    text-align: center;
+    padding: 15px;
+}
+
+#qr-code-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Download Button */
+.download-qr-button {
+    padding: 12px 25px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.download-qr-button:hover {
+    background-color: #45a049;
+}
+
+/* Utility Class */
+.hidden {
+    display: none !important;
+}
+
+/* Add some basic responsiveness for smaller screens */
+@media (max-width: 900px) {
+    .hero-section .container {
+        flex-direction: column;
+        width: 95%;
+    }
+    .hero-content {
+        padding: 40px 30px;
+        flex: auto;
+    }
+    .qr-code-section {
+        flex: auto;
+        padding: 40px 30px;
+        border-radius: 0 0 20px 20px;
+    }
+}

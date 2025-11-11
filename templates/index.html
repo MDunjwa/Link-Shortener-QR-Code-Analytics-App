@@ -16,5 +16,32 @@
         </ul>
         </nav>
 
+        <!-- My hero section -->
+        <main class="hero-section">
+            <div class="container">
+                <!-- Left side url input -->
+                <div class="url-input">
+                    <h1>Shorten, Share, and Track Your Links</h1>
+                    <p>Paste your long URL below to shorten it, generate a QR code, and access link analytics</p>
+                    <!-- url input form -->
+                    <form id="shortening-form" class="shortening-form">
+                        <input 
+                            type="url" 
+                            id="long-url-input" 
+                            placeholder="Paste your long URL here..." 
+                            required
+                        >
+                        <button type="submit">Shorten & Generate</button>
+                    </form>                    
+                </div>
+
+                <!-- Right side, qr code -->
+                <div class="qr-code-section">
+                    <div class="qr-code-placeholder">
+                        <p>Where the qr code will appear</p>
+                    </div>
+                </div>
+            </div>
+        </main>
     </body>
 </html>
