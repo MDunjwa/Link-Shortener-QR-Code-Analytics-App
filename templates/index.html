@@ -3,6 +3,8 @@
     <head>
         <link rel="stylesheet" href="{{ url_for('static', filename='css/navbar.css') }}">
         <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
     </head>
     <body>
         <!-- My nav bar -->
@@ -18,12 +20,16 @@
 
         <!-- My hero section -->
         <main class="hero-section">
+            <div class="hero-heading">
+                <h1>Shorten, Share & Track Your Links</h1>
+                <p>
+                    Paste your long URL below to shorten it, generate a QR code, and access link analytics.
+                </p>
+            </div>
+
             <div class="container">
-                <!-- Left side url input -->
-                <div class="url-input">
-                    <h1>Shorten, Share, and Track Your Links</h1>
-                    <p>Paste your long URL below to shorten it, generate a QR code, and access link analytics</p>
-                    <!-- url input form -->
+                <!-- Left side: URL input -->
+                <div class="card url-input">
                     <form id="shortening-form" class="shortening-form">
                         <input 
                             type="url" 
@@ -32,14 +38,15 @@
                             required
                         >
                         <button type="submit">Shorten & Generate</button>
-                    </form>                    
+                    </form>
                 </div>
 
-                <!-- Right side, qr code -->
-                <div class="qr-code-section">
-                    <div class="qr-code-placeholder">
-                        <p>Where the qr code will appear</p>
+                <!-- Right side: QR Code -->
+                <div class="card qr-card">
+                    <div class="qr-placeholder">
+                        <img src="{{ url_for('static', filename='images/sample_qr.png') }}" alt="QR Code">
                     </div>
+                    <button class="download-btn">Download QR Code</button>
                 </div>
             </div>
         </main>
