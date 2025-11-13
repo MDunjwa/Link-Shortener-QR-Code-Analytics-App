@@ -97,12 +97,6 @@
     justify-content: center;
 }
 
-.qr-placeholder img {
-    width: 160px;
-    height: 160px;
-    margin-bottom: 1rem;
-}
-
 /* Download button */
 .download-btn {
     background-color: #28a745;
@@ -137,4 +131,18 @@
         width: 150px;
         height: 150px;
     }
+}
+
+.qr-placeholder img {
+    width: 160px;
+    height: 160px;
+    margin-bottom: 1rem;
+    opacity: 0.4;        
+    filter: grayscale(100%); 
+    transition: opacity 0.3s, filter 0.3s;
+}
+
+.qr-placeholder img.active {
+    opacity: 1;
+    filter: none;
 }
