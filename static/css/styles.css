@@ -47,7 +47,7 @@
 
 /* URL input card */
 .url-input {
-    width: 500px;
+    width: 600px;
 }
 
 .shortening-form {
@@ -146,3 +146,4 @@
     opacity: 1;
     filter: none;
 }
+
