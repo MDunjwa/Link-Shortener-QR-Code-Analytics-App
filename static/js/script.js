@@ -50,7 +50,7 @@ function displayResults(data) {
     // Get QR image element
     const qrImage = document.querySelector('.qr-placeholder img');
     
-    // Updating my QR code image
+    // Updating my default QR code image
     qrImage.src = 'data:image/png;base64,' + data.qr_code;
     qrImage.classList.add('active'); // Changing to full opacity
     
