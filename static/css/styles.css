@@ -148,3 +148,69 @@
     filter: none;
 }
 
+/* Output section */
+.output-section {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid #e0e0e0;
+}
+
+.output-section h3 {
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.output-row {
+    display: flex;
+    gap: 0.8rem;
+    margin-bottom: 1rem;
+}
+
+.output-row input {
+    flex-grow: 1;
+    padding: 0.9rem 1rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 0.5rem;
+    font-size: 0.95rem;
+    background: #f8f9fa;
+    color: #333;
+}
+
+.copy-btn {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 0.9rem 1.5rem;
+    border-radius: 0.5rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    white-space: nowrap;
+}
+
+.copy-btn:hover {
+    background-color: #218838;
+}
+
+.stats-link-container {
+    text-align: center;
+}
+
+.stats-link-container a {
+    color: #28a745;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: opacity 0.2s;
+}
+
+.stats-link-container a:hover {
+    opacity: 0.8;
+}
+
+/* Hidden class */
+.hidden {
+    display: none;
+}

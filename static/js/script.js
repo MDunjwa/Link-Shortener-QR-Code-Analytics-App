@@ -53,12 +53,42 @@ function displayResults(data) {
     // Updating my default QR code image
     qrImage.src = 'data:image/png;base64,' + data.qr_code;
     qrImage.classList.add('active'); // Changing to full opacity
+
+    // Making the output seciton visible
+    const outputSection = document.getElementById('output-section');
+    const shortUrlDisplay = document.getElementById('short-url-display');
+    const statsLink = document.getElementById('stats-link');
+
+    shortUrlDisplay.value = data.short_url;
+    statsLink.href = `/stats/${data.short_id}`;
+    
+    
+    
     
     // Logging success
     console.log('Short URL:', data.short_url);
     console.log('Short ID:', data.short_id);
 }
+
+function copyShortUrl() {
+    const shortUrlDisplay = document.getElementById('short-url-display');
     
+    // Select and copy
+    shortUrlDisplay.select();
+    document.execCommand('copy');
+    
+    // Visual feedback
+    const button = event.target;
+    const originalText = button.textContent;
+    button.textContent = 'Copied!';
+    button.style.backgroundColor = '#218838';
+    
+    // Reset after 2 seconds
+    setTimeout(() => {
+        button.textContent = originalText;
+        button.style.backgroundColor = '';
+    }, 2000);
+}
     // TODO: Get the URL from input
     // TODO: Send to backend
     // TODO: Display results

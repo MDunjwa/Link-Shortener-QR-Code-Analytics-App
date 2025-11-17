@@ -39,6 +39,22 @@
                         >
                         <button type="submit">Shorten & Generate</button>
                     </form>
+
+                    <!-- Initially hidden output section -->
+                    <div id="output-section" class="output-section hidden">
+                        <h3>Your Shortened Link</h3>
+                        
+                        <div class="output-row">
+                            <input type="text" id="short-url-display" readonly>
+                            <button class="copy-btn" onclick="copyShortUrl()">Copy</button>
+                        </div>
+                        
+                        <div class="stats-link-container">
+                            <a href="#" id="stats-link" target="_blank">
+                                View Analytics →
+                            </a>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Right side: QR Code -->
