@@ -62,8 +62,7 @@ function displayResults(data) {
     shortUrlDisplay.value = data.short_url;
     statsLink.href = `/stats/${data.short_id}`;
     
-    
-    
+    outputSection.classList.remove('hidden');
     
     // Logging success
     console.log('Short URL:', data.short_url);
