@@ -20,8 +20,10 @@ async function handleFormSubmit(event) {
     // Hiding previous results and showing loading
     const outputSection = document.getElementById('output-section');
     const loadingState = document.getElementById('loading-state');
+    const errorMessage = document.getElementById('error-message')
     
     outputSection.classList.add('hidden');
+    errorMessage.classList.add('hidden');
     loadingState.classList.remove('hidden');
     
     // Show loading state (we'll add visual feedback later)
@@ -50,9 +52,18 @@ async function handleFormSubmit(event) {
         displayResults(data);
         
     } catch (error) {
+        loadingState.classList.add('hidden');
         console.error('Error:', error);
         alert('Error: ' + error.message);
     }
+}
+
+function showError(message) {
+    const errorMessage = document.getElementById('error-message');
+    const errorText = document.getElementById('error-text');
+    
+    errorText.textContent = message;
+    errorMessage.classList.remove('hidden');
 }
 
 function displayResults(data) {

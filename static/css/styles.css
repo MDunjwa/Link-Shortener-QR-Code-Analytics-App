@@ -243,3 +243,19 @@
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
+
+/* Error message */
+.error-message {
+    margin-top: 2rem;
+    padding: 1rem 1.5rem;
+    background-color: #f8d7da;
+    border: 1px solid #f5c2c7;
+    border-radius: 0.5rem;
+    color: #842029;
+}
+
+.error-message p {
+    margin: 0;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
