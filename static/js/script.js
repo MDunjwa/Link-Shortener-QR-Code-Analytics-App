@@ -16,6 +16,13 @@ async function handleFormSubmit(event) {
         alert('Please enter a URL');
         return;
     }
+
+    // Hiding previous results and showing loading
+    const outputSection = document.getElementById('output-section');
+    const loadingState = document.getElementById('loading-state');
+    
+    outputSection.classList.add('hidden');
+    loadingState.classList.remove('hidden');
     
     // Show loading state (we'll add visual feedback later)
     console.log('Shortening URL:', url);
@@ -35,6 +42,9 @@ async function handleFormSubmit(event) {
         if (!response.ok) {
             throw new Error(data.error || 'Something went wrong');
         }
+
+        // Hiding loading, showing results
+        loadingState.classList.add('hidden');
         
         // Data contains the url, the shortened url, and the qr code
         displayResults(data);
