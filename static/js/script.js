@@ -88,9 +88,30 @@ function copyShortUrl() {
         button.style.backgroundColor = '';
     }, 2000);
 }
-    // TODO: Get the URL from input
-    // TODO: Send to backend
-    // TODO: Display results
+
+function downloadQrCode() {
+    const qrImage = document.querySelector('.qr-placeholder img');
+    
+    // Checking if QR code has been generated
+    if (!qrImage.src || qrImage.src.includes('sample_qr.png')) {
+        alert('Please generate a short URL first!');
+        return;
+    }
+    
+    // Get the base64 data
+    const base64Data = qrImage.src;
+    
+    // Create a temporary download link
+    const link = document.createElement('a');
+    link.href = base64Data;
+    link.download = 'qr-code.png';
+    
+    // Trigger download
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
+
 
 
 /* 
